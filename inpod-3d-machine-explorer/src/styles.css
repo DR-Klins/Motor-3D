@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #f6f8fb;
+  background: #090b0d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(26, 108, 148, 0.2), transparent 32rem),
+    radial-gradient(circle at 82% 4%, rgba(221, 111, 41, 0.14), transparent 30rem),
+    linear-gradient(135deg, #090b0d 0%, #12171a 48%, #0b0e10 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.viewer-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.scanline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scanline::before {
+  content: '';
+  position: absolute;
+  top: -35%;
+  left: -15%;
+  width: 130%;
+  height: 34%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(65, 216, 255, 0.08) 42%,
+    rgba(65, 216, 255, 0.28) 50%,
+    rgba(65, 216, 255, 0.08) 58%,
+    transparent 100%
+  );
+  transform: rotate(-9deg);
+  animation: scan 4.8s linear infinite;
+}
+
+@keyframes scan {
+  from {
+    translate: 0 -20%;
+  }
+  to {
+    translate: 0 420%;
+  }
+}
+
+.signal-chip {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
